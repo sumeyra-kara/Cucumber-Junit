@@ -31,6 +31,5 @@ public class Login_StepDefs {
     @And("user enters student password and clicks login button")
     public void userEntersStudentPasswordAndClicksLoginButton() {
         System.out.println("user entered student password and clicks login button");
-        System.out.println("ssd");
     }
 }
