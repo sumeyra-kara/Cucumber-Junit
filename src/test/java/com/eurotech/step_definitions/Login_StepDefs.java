@@ -8,15 +8,15 @@ import io.cucumber.java.en.When;
 public class Login_StepDefs {
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
-        System.out.println("user is on the logen page");
+        System.out.println("user is on the login page");
     }
     @When("user enters teacher username")
     public void user_enters_teacher_username() {
-        System.out.println("user enters teacher username");
+        System.out.println("user entered teacher username");
     }
     @When("user enters teacher password and clicks login button")
     public void user_enters_teacher_password_and_clicks_login_button() {
-        System.out.println("user enters teacher password and clicks login button");
+        System.out.println("user entered teacher password and clicks login button");
     }
     @Then("verify that user should be able to login")
     public void verify_that_user_should_be_able_to_login() {
@@ -31,5 +31,14 @@ public class Login_StepDefs {
     @And("user enters student password and clicks login button")
     public void userEntersStudentPasswordAndClicksLoginButton() {
         System.out.println("user entered student password and clicks login button");
+    }
+
+    @When("user enters developer username and clicks login button")
+    public void user_enters_developer_username_and_clicks_login_button() {
+        System.out.println("user entered developer username and clicks login button");
+    }
+    @When("user enters developer password and clicks login button")
+    public void user_enters_developer_password_and_clicks_login_button() {
+        System.out.println("user entered developer password and clicks login button");
     }
 }
