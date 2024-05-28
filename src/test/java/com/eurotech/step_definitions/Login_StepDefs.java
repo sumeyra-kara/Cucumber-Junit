@@ -1,44 +1,60 @@
 package com.eurotech.step_definitions;
 
+import com.eurotech.pages.DashboardPage;
+import com.eurotech.pages.LoginPage;
+import com.eurotech.utility.ConfigReader;
+import com.eurotech.utility.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class Login_StepDefs {
+
+    LoginPage loginPage = new LoginPage();
+    DashboardPage dashboardPage = new DashboardPage();
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
-        System.out.println("user is on the login page");
+        Driver.getDriver().get(ConfigReader.getProperty("url"));
+        loginPage.confirmButton.click();
+
+
     }
     @When("user enters teacher username")
     public void user_enters_teacher_username() {
-        System.out.println("user entered teacher username");
+        loginPage.inputEmail.sendKeys(ConfigReader.getProperty("teacherEmail"));
+
     }
     @When("user enters teacher password and clicks login button")
     public void user_enters_teacher_password_and_clicks_login_button() {
-        System.out.println("user entered teacher password and clicks login button");
+        loginPage.inputPassword.sendKeys(ConfigReader.getProperty("teacherPassword"));
+        loginPage.loginButton.click();
+
     }
     @Then("verify that user should be able to login")
     public void verify_that_user_should_be_able_to_login() {
-        System.out.println("verify that user should be able to login");
+        Assert.assertTrue(dashboardPage.welcomeText.getText().contains("Welcome"));
     }
 
     @When("user enters student username")
     public void userEntersStudentUsername() {
-        System.out.println("user entered student username");
+        loginPage.inputEmail.sendKeys(ConfigReader.getProperty("studentEmail"));
     }
 
     @And("user enters student password and clicks login button")
     public void userEntersStudentPasswordAndClicksLoginButton() {
-        System.out.println("user entered student password and clicks login button");
+        loginPage.inputPassword.sendKeys(ConfigReader.getProperty("studentPassword"));
+        loginPage.loginButton.click();
     }
 
-    @When("user enters developer username and clicks login button")
+    @When("user enters developer username")
     public void user_enters_developer_username_and_clicks_login_button() {
-        System.out.println("user entered developer username and clicks login button");
+        loginPage.inputEmail.sendKeys(ConfigReader.getProperty("devEmail"));
     }
     @When("user enters developer password and clicks login button")
     public void user_enters_developer_password_and_clicks_login_button() {
-        System.out.println("user entered developer password and clicks login button");
+        loginPage.inputPassword.sendKeys(ConfigReader.getProperty("devPassword"));
+        loginPage.loginButton.click();
     }
 }

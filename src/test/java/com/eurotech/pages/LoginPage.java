@@ -39,6 +39,9 @@ public class LoginPage {
 
     @FindBy (id = "loginpage-form-btn") // login Button icin
     public WebElement inputLogin;
+
+    @FindBy(xpath = "//input[@id='loginpage-form-btn']")
+    public WebElement loginButton;
     @FindBy (xpath = "//div[text()='Invalid Credentials!']") // uyari yazisi
     public WebElement inputWarnung;
 
@@ -54,17 +57,40 @@ public class LoginPage {
     })
     public WebElement inputPasswordFindBys;
 
-    public void login(){
+    public void loginTeacher(){
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         confirmButton.click();
         inputEmail.sendKeys(ConfigReader.getProperty("teacherEmail"));
         inputPassword.sendKeys(ConfigReader.getProperty("teacherPassword"));
         inputLogin.click();
     }
-
-    public void login (String username, String password){
+    public void loginStudent(){
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         confirmButton.click();
+        inputEmail.sendKeys(ConfigReader.getProperty("studentEmail"));
+        inputPassword.sendKeys(ConfigReader.getProperty("studentPassword"));
+        inputLogin.click();
+    }
+
+    public void login(String loginwith){
+        if (loginwith.equals("Teacher")){
+            Driver.getDriver().get(ConfigReader.getProperty("url"));
+            confirmButton.click();
+            inputEmail.sendKeys(ConfigReader.getProperty("teacherEmail"));
+            inputPassword.sendKeys(ConfigReader.getProperty("teacherPassword"));
+            inputLogin.click();
+        }else{
+            Driver.getDriver().get(ConfigReader.getProperty("url"));
+            confirmButton.click();
+            inputEmail.sendKeys(ConfigReader.getProperty("studentEmail"));
+            inputPassword.sendKeys(ConfigReader.getProperty("studentPassword"));
+            inputLogin.click();
+        }
+    }
+
+    public void login (String username, String password){
+       // Driver.getDriver().get(ConfigReader.getProperty("url"));
+        //confirmButton.click();
         inputEmail.sendKeys(username);
         inputPassword.sendKeys(password);
         inputLogin.click();

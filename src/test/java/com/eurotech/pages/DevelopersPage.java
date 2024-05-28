@@ -6,6 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DevelopersPage extends BasePage{
+
+    @FindBy(id = "profiles-heading")
+    public WebElement developersText;
+
     @FindBy(id = "dualfilter-skills-btn")
     public WebElement skillButton;
 

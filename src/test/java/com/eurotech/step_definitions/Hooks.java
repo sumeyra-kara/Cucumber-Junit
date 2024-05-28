@@ -1,28 +1,32 @@
 package com.eurotech.step_definitions;
 
+import com.eurotech.utility.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
     @Before
     public void setUp(){
-        System.out.println("***** Before each Test Case ******");
+
     }
 
     @After
-    public void tearDown(){
-        System.out.println("****** After each Test Case ******");
+    public void tearDown(Scenario scenario){
+
+        if (scenario.isFailed()) {
+            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png","screenshot");
+            //Driver.closeDriver();
+        }
+
+
+        Driver.closeDriver();
     }
 
-    @Before("@db")
-    public void setUpDB(){
-        System.out.println("DataBase is connected");
-    }
-    @After("@db")
-    public void tearDownDB(){
-        System.out.println("Database is disconnected");
-    }
 
 
 

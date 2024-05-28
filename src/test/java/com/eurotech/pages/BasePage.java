@@ -9,10 +9,14 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public abstract class BasePage {
+public class BasePage {
     public BasePage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
+
+
+    @FindBy(css = "h1[class='large text-primary']")
+    public WebElement pageHeader;
     @FindBy(className = "nav__menu-item")
     public List<WebElement> menuList;
 

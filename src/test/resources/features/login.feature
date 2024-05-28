@@ -17,10 +17,10 @@ Feature: Login Functionality
     And user enters student password and clicks login button
     Then verify that user should be able to login
 
-  @wip
+
   Scenario: Login as a developer
     Given user is on the login page
-    When user enters developer username and clicks login button
+    When user enters developer username
     And user enters developer password and clicks login button
     Then verify that user should be able to login
 

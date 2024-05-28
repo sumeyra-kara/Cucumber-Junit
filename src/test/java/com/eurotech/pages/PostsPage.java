@@ -5,6 +5,11 @@ import org.openqa.selenium.support.FindBy;
 
 public class PostsPage extends BasePage {
 
+    @FindBy(id = "posts-heading")
+    public WebElement postsText;
+
+
+
     @FindBy(xpath = "//textarea[@name='title']") // add a Title
     public WebElement addTitle;
 
