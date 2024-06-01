@@ -32,4 +32,6 @@ public class LoginWithParameters_StepDefs {
     @Then("Example {int}")
     public void example(int number) {
     }
+
+
 }

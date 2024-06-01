@@ -38,5 +38,10 @@ public class BasePage {
     }
     public void logout(){subMenuBar("Logout").click();}
 
+    //div[@class='alert alert-danger']
+    @FindBy(xpath= "//div[@class='alert alert-danger']")
+    public WebElement warningMessage;
+
+
 
 }

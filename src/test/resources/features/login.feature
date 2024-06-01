@@ -10,7 +10,7 @@ Feature: Login Functionality
     Then verify that user should be able to login
     #And verify that user should be able to see his name
 
-  @smoke @login
+
   Scenario: Login as a student
     Given user is on the login page
     When user enters student username

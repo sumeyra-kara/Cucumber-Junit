@@ -28,20 +28,21 @@ Feature: Login with Parameters
 
 
 
-  Scenario: Teacher navigates to the All Posts Menu
+   Scenario Outline: Login with DDT
     Given user is on the login page
-    When user enters "eurotech@gmail.com" email
-    And user enters "Test12345!" password
+    When user enters "<email>" email
+    And user enters "<password>" password
     And user clicks on the login button
-    Then verify that user should be able to see "Welcome Teacher" text
-    And user clicks on the "All Posts" menu
-    Then verify that user should be able to see "Posts" header
+    Then verify that user should be able to see "<username>" text
+    Examples:
+      | email                 | password   | username        |
+      | eurotech@gmail.com    | Test12345! | Welcome Teacher |
+      | batch16@gmail.com     | Test12345! | Welcome batch16 |
+      | sparrowjack@gmail.com | sparrow1   | Welcome Jack    |
 
-  Scenario: Developer navigates to the Developers Menu
-    Given user is on the login page
-    When user enters "sparrowjack@gmail.com" email
-    And user enters "sparrow1" password
-    And user clicks on the login button
-    Then verify that user should be able to see "Welcome Jack" text
-    And user clicks on the "Developers" menu
-    Then verify that user should be able to see "Developers" heade
+
+
+
+
+
+
