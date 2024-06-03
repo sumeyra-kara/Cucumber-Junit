@@ -23,7 +23,7 @@ Feature: Navigation Menu with Parameters
     Then verify that user should be able to "Dashboard" header
 
 
-
+  @wip
   Scenario: Teacher navigates to the All Posts Menu
     Given user is on the login page
     When user enters "eurotech@gmail.com" email
@@ -33,7 +33,7 @@ Feature: Navigation Menu with Parameters
     And user clicks on the "All Posts" menu
     Then verify that user should be able to see "Posts" header
 
-  @wip
+
   Scenario: Developer navigates to the Developers Menu
     Given user is on the login page
     When user enters "sparrowjack@gmail.com" email
