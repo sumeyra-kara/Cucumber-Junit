@@ -2,7 +2,6 @@
 Feature: Login Functionality
   As a user, I should be able to login, so that I can see my dashboard
 
-  @smoke @db
   Scenario: Login as a teacher
     Given user is on the login page
     When user enters teacher username

@@ -5,7 +5,7 @@
 #eurotec@gmail.com
 #Do not forget to take the messages which show the result as negative
 #Create Step Def class and if needed create Locators and methods in related page class
-  @negative
+
   Feature: Negative Login Test
 
     Background:
