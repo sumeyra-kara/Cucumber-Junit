@@ -9,6 +9,9 @@ import java.util.List;
 
 public class DashboardPage extends BasePage {
 
+    @FindBy(xpath = "//a[@data-for='edit-education-btn']")
+    public WebElement addEducationButton;
+
     @FindBy(id = "dashboard-h1")
     public WebElement dashboardText;
 

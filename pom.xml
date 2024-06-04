@@ -23,10 +23,10 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <runOrder>Alphabetical</runOrder>
-                    <rerunFailingTestsCount>1</rerunFailingTestsCount>
-                    <includes>
-                        <include>**/*Cukes_Runner.java</include>
-                        <include>**/*FailedTestRunner.java</include>
+                    <!--< <rerunFailingTestsCount>1</rerunFailingTestsCount> >-->
+                   <includes>
+                       <include>**/*Cukes_Runner.java</include>
+                     <include>**/*FailedTestRunner.java</include>
                     </includes>
                 </configuration>
             </plugin>

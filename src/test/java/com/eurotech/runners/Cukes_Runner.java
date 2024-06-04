@@ -8,16 +8,18 @@ import org.junit.runner.RunWith;
         plugin = {"json:target/cucumber.json",
                 "html:target/html-reports.html",
                 "rerun:target/rerun.txt"
-
-
         },
         features = "src/test/resources/features",
         glue = "com/eurotech/step_definitions",
         dryRun = false,
-        tags = "@wip"  // not, or, and
+        tags = "@addEducation"  // not, or, and
 
 
 )
 
 public class Cukes_Runner {
+        /*
+        Cucumber Optiions'un oncelikli gorevi features dosyalari ile stepdefinitions'da bulunan Java method'larini
+        ilisiklendirmektir
+         */
 }

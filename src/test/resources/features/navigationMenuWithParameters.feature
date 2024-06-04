@@ -43,7 +43,7 @@ Feature: Navigation Menu with Parameters
     And user clicks on the "Developers" menu
     Then verify that user should be able to see "Developers" header
 
-
+  @aa
   Scenario Outline: Navigate with DDF
     Given user is on the login page
     When user enters "<email>" email
