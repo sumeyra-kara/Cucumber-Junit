@@ -19,7 +19,7 @@ import org.junit.runner.RunWith;
 
 public class Cukes_Runner {
         /*
-        Cucumber Optiions'un oncelikli gorevi features dosyalari ile stepdefinitions'da bulunan Java method'larini
+        Cucumber Options'un oncelikli gorevi features dosyalari ile stepdefinitions'da bulunan Java method'larini
         ilisiklendirmektir
          */
 }
