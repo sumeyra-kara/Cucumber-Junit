@@ -1,6 +1,7 @@
 package com.eurotech.step_definitions;
 
 import com.eurotech.pages.AddEducationPage;
+import com.eurotech.pages.BasePage;
 import com.eurotech.pages.DashboardPage;
 import com.eurotech.utility.BrowserUtils;
 import com.eurotech.utility.Driver;
@@ -8,10 +9,19 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-public class AddEducation_StepDefs {
+public class AddEducation_StepDefs extends BasePage {
     DashboardPage dashboardPage = new DashboardPage();
     AddEducationPage addEducationPage = new AddEducationPage();
+
+    public WebElement inputField(String fieldName) {
+        String fieldPath = "//*[@name='" + fieldName + "']";
+        return Driver.getDriver().findElement(By.xpath(fieldPath));
+    }
+
+
 
     @When("clicks on Add Education")
     public void clicks_on_add_education() {

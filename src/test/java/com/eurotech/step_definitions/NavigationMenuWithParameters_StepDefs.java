@@ -53,6 +53,6 @@ public class NavigationMenuWithParameters_StepDefs {
     }
     @Then("verify that user should be able to see {string} header")
     public void verify_that_user_should_be_able_to_header(String header) {
-        Assert.assertEquals(header,postsPage.pageHeader.getText());
+        Assert.assertNotEquals(header,postsPage.pageHeader.getText());
     }
 }

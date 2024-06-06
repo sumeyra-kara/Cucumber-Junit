@@ -1,11 +1,15 @@
 package com.eurotech.pages;
 
+import com.eurotech.utility.Driver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
 public class AddEducationPage extends BasePage {
+
+
 
     @FindBy(id = "addecutaion-form-addschool-btn")
     public WebElement schollBootcamp;
