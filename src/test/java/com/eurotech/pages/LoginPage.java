@@ -2,11 +2,15 @@ package com.eurotech.pages;
 
 import com.eurotech.utility.ConfigReader;
 import com.eurotech.utility.Driver;
+import com.eurotech.utility.ExcelUtil;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
+import java.util.Map;
 
 public class LoginPage {
     /*
@@ -95,4 +99,11 @@ public class LoginPage {
         inputPassword.sendKeys(password);
         inputLogin.click();
     }
+
+    public List<Map<String, String>> getDataList(String sheetName){
+        ExcelUtil excelUtil = new ExcelUtil("src/test/resources/DevEx.xlsx",sheetName);
+        List<Map<String, String>> dataList = excelUtil.getDataList();
+        return dataList;
+    }
+
 }
