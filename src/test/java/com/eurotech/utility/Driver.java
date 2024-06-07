@@ -21,6 +21,11 @@ public class Driver {
         String browser = ConfigReader.getProperty("browser");
 
         if (driverPool.get()==null){
+            if (System.getProperty("BROWSER")==null) {
+                browser = ConfigReader.getProperty("browser");
+            }else {
+                browser = System.getProperty("BROWSER");
+            }
 
             switch (browser.toLowerCase()){
                 case "chrome":

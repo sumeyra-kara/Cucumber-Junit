@@ -20,7 +20,7 @@ Feature: Edit Profile Functionality
 
 
 
-  @editProfile2
+  @edit
   Scenario Outline: add education as a Student and Teacher
     Given user is on the login page
     When user enters "<email>" email
@@ -39,6 +39,6 @@ Feature: Edit Profile Functionality
     And user clicks on the submit button
     Then verify that user should be able to see "<message>"
     Examples:
-      | email              | password   | username        | menu         | company | website    | location | skills | githubusername | bio          | message         |
-      | batch16@gmail.com  | Test12345! | Welcome batc16  | Edit Profile | Amazon  | amazon.com | Turkey   | Python | test01         | test01Amazon | Profile Updated |
-      | eurotech@gmail.com | Test12345! | Welcome Teacher | Edit Profile | Amazon  | amazon.de  | Germany  | Java   | test02         | test02Amazon | Profile Updated |
+      | email              | password   | username | menu         | company | website    | location | skills | githubusername | bio          | message         |
+      | batch16@gmail.com  | Test12345! | Sign In  | Edit Profile | Amazon  | amazon.com | Turkey   | Python | test01         | test01Amazon | Profile Updated |
+      | eurotech@gmail.com | Test12345! | Sign In  | Edit Profile | Amazon  | amazon.de  | Germany  | Java   | test02         | test02Amazon | Profile Updated |

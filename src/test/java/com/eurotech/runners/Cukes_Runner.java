@@ -12,9 +12,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/eurotech/step_definitions",
         dryRun = false,
-        tags = "@editProfile2",  // not, or, and
+        tags = "@edit",  // not, or, and
         publish=false // fur TestErgebnisse, cucumber reports
-
 
 )
 
@@ -23,4 +22,7 @@ public class Cukes_Runner {
         Cucumber Options'un oncelikli gorevi features dosyalari ile stepdefinitions'da bulunan Java method'larini
         ilisiklendirmektir
          */
+        // mvn verify -Dcucumber.filter.tags="@regression" ---cmd den bu ile yapilabiliyor
+        // -DBROWSER=firefox --cmd
+        // mvn verify -DBROWSER=firefox -Dcucumber.filter.tags="@login"
 }
