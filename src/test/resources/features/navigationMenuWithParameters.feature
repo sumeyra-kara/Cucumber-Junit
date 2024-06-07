@@ -13,7 +13,7 @@ Feature: Navigation Menu with Parameters
     When Get the text of welcome
     And Then go to "All Posts" menu
     Then get the text of "All Posts"
-    Then verify that user should be able to "All Posts" header
+    Then verify that user should be able to "Posts" header
 
   Scenario: Dashboard page test
     Given Login as "Teacher"
@@ -23,7 +23,6 @@ Feature: Navigation Menu with Parameters
     Then verify that user should be able to "Dashboard" header
 
 
-  @wip
   Scenario: Teacher navigates to the All Posts Menu
     Given user is on the login page
     When user enters "eurotech@gmail.com" email

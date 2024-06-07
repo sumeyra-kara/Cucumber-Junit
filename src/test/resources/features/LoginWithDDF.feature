@@ -1,4 +1,4 @@
-@excel
+
 Feature: Login Functionality with Excel sheet
 
   Scenario Outline: Login with Excel

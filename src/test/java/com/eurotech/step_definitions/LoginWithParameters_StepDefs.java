@@ -26,7 +26,8 @@ public class LoginWithParameters_StepDefs {
     }
     @Then("verify that user should be able to see {string} text")
     public void verify_that_user_should_be_able_to_see_text(String username) {
-        Assert.assertTrue(dashboardPage.welcomeText.getText().contains(username));
+
+        Assert.assertEquals(username,dashboardPage.welcomeText.getText());
     }
 
     @Then("Example {int}")

@@ -1,11 +1,12 @@
+
 Feature: Edit Profile Functionality
-  @editProfile
+  @wip1
   Scenario: add education as a Student
     Given user is on the login page
     When user enters "batch16@gmail.com" email
     And user enters "Test12345!" password
     And user clicks on the login button
-    Then verify that user should be able to see "<username>" text
+    Then verify that user should be able to see "Welcome batch16" text
     When user clicks on the "Edit Profile" dashboard menu
     And user clicks in career "Manager"
     And user clicks years 2
@@ -18,15 +19,13 @@ Feature: Edit Profile Functionality
     And user clicks on the submit button
     Then verify that user should be able to see "Profile Updated"
 
-
-
-  @edit
+  @wip1
   Scenario Outline: add education as a Student and Teacher
     Given user is on the login page
     When user enters "<email>" email
     And user enters "<password>" password
     And user clicks on the login button
-    Then verify that user should be able to see "<username>" header
+    Then verify that user should be able to see "<username>" text
     When user clicks on the "<menu>" dashboard menu
     And user clicks in career "Manager"
     And user clicks years 2
@@ -39,6 +38,6 @@ Feature: Edit Profile Functionality
     And user clicks on the submit button
     Then verify that user should be able to see "<message>"
     Examples:
-      | email              | password   | username | menu         | company | website    | location | skills | githubusername | bio          | message         |
-      | batch16@gmail.com  | Test12345! | Sign In  | Edit Profile | Amazon  | amazon.com | Turkey   | Python | test01         | test01Amazon | Profile Updated |
-      | eurotech@gmail.com | Test12345! | Sign In  | Edit Profile | Amazon  | amazon.de  | Germany  | Java   | test02         | test02Amazon | Profile Updated |
+      | email              | password   | username        | menu         | company | website    | location | skills | githubusername | bio          | message         |
+      | batch16@gmail.com  | Test12345! | Welcome batch16 | Edit Profile | Amazon  | amazon.com | Turkey   | Python | test01         | test01Amazon | Profile Updated |
+      | eurotech@gmail.com | Test12345! | Welcome Teacher | Edit Profile | Amazon  | amazon.de  | Germany  | Java   | test02         | test02Amazon | Profile Updated |

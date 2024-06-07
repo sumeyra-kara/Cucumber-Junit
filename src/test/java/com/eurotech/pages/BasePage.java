@@ -14,6 +14,9 @@ public class BasePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    @FindBy(id = "dashboard-p1")
+    public WebElement welcomeText;
+
 
     @FindBy(css = "h1[class='large text-primary']")
     public WebElement pageHeader;
