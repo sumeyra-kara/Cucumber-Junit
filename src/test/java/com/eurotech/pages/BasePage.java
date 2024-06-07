@@ -15,6 +15,9 @@ public class BasePage {
     }
 
 
+    @FindBy(id = "dashboard-p1")
+    public WebElement welcomeText;
+
     @FindBy(css = "h1[class='large text-primary']")
     public WebElement pageHeader;
     @FindBy(className = "nav__menu-item")

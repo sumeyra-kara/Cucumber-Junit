@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/eurotech/step_definitions",
         dryRun = false,
-        tags = "@editProfile2",  // not, or, and
+        tags = "@e",  // not, or, and
         publish=false // fur TestErgebnisse, cucumber reports
 
 
