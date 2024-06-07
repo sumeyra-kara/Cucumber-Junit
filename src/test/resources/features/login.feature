@@ -1,4 +1,4 @@
-@regression
+
 Feature: Login Functionality
   As a user, I should be able to login, so that I can see my dashboard
 

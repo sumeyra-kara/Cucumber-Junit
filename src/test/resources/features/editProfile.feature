@@ -1,11 +1,11 @@
 Feature: Edit Profile Functionality
-  @editProfile
+
   Scenario: add education as a Student
     Given user is on the login page
     When user enters "batch16@gmail.com" email
     And user enters "Test12345!" password
     And user clicks on the login button
-    Then verify that user should be able to see "<username>" text
+    Then verify that user should be able to see "Welcome batch16" text
     When user clicks on the "Edit Profile" dashboard menu
     And user clicks in career "Manager"
     And user clicks years 2
@@ -20,13 +20,13 @@ Feature: Edit Profile Functionality
 
 
 
-  @e
+
   Scenario Outline: add education as a Student and Teacher
     Given user is on the login page
     When user enters "<email>" email
     And user enters "<password>" password
     And user clicks on the login button
-    Then verify that user should be able to see "<username>" header
+    Then verify that user should be able to see "<username>" text
     When user clicks on the "<menu>" dashboard menu
     And user clicks in career "Manager"
     And user clicks years 2
