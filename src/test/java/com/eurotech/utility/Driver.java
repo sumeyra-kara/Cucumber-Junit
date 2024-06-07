@@ -15,69 +15,71 @@ import java.util.concurrent.TimeUnit;
 
 public class Driver {
     private Driver(){} // baska classlardan obje olusturulmasin diye
-    public static WebDriver driver; // classname ile cagirmam icin static yapiyoruz
+    private static InheritableThreadLocal <WebDriver> driverPool = new InheritableThreadLocal<>(); // classname ile cagirmam icin static yapiyoruz
     // encapsülation kullanmak istedigimden private oluyor
     public static WebDriver getDriver(){
         String browser = ConfigReader.getProperty("browser");
 
-        if (driver==null){
+        if (driverPool.get()==null){
 
             switch (browser.toLowerCase()){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+                    driverPool.set(new ChromeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
+                    driverPool.set(new ChromeDriver(new ChromeOptions().setHeadless(true)));
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+                    driverPool.set(new FirefoxDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     break;
                 case "firefox-headless":
                     WebDriverManager.firefoxdriver().setup();
-                    driver =new FirefoxDriver(new FirefoxOptions().setHeadless(true));
+                    driverPool.set(new FirefoxDriver(new FirefoxOptions().setHeadless(true)));
                     break;
                 case "edge":
                     if (System.getProperty("os.name").contains("MAC")){ // mac'de edge calismadigi icin
                         throw new WebDriverException("Your Operating System does not support");
                     }
                     WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+                    driverPool.set(new EdgeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     break;
                 case "ie":
                     if (System.getProperty("os.name").toLowerCase().contains("mac")) {
                         throw new WebDriverException("Your operating system does not support the requested browser");
                     }
                     WebDriverManager.iedriver().setup();
-                    driver = new InternetExplorerDriver();
+                    driverPool.set(new InternetExplorerDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     break;
                 case "safari" :
                     if (System.getProperty("os.name").contains("WINDOWS")){
                         throw new WebDriverException("Your Operating System does not support");
                     }
                     WebDriverManager.safaridriver().setup();
-                    driver=new SafariDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+                    driverPool.set(new SafariDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     break;
                 default:
                     System.out.println("Invalid driver");
             }
         }
-        return driver;
+        return driverPool.get();
     }
     public static void closeDriver(){
-        if (driver!=null){
-            //driver.quit();
-            driver=null;
+        if (driverPool.get()!=null){
+            driverPool.get().quit();
+            driverPool.remove();
         }
     }
 }
