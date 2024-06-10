@@ -2,7 +2,7 @@
 Feature: Login with Parameters
 
   As a user, I should be able to login as different users
-
+  @smoke
   Scenario: Login as Teacher with Parameters
     Given user is on the login page
     When user enters "eurotech@gmail.com" email

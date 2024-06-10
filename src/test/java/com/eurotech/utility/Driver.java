@@ -1,6 +1,7 @@
 package com.eurotech.utility;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,8 +10,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
@@ -72,6 +76,29 @@ public class Driver {
                     }
                     WebDriverManager.safaridriver().setup();
                     driverPool.set(new SafariDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+                    break;
+
+                case "remote-chrome":
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.setCapability("platform", Platform.ANY);
+                    try {
+                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions));
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+                    break;
+                case "remote-firefox":
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions.setCapability("platform", Platform.ANY);
+                    try {
+                        driverPool.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), firefoxOptions));
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
                     driverPool.get().manage().window().maximize();
                     driverPool.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
                     break;

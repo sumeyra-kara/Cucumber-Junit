@@ -1,6 +1,6 @@
 
 Feature: Edit Profile Functionality
-  @wip1
+  @smoke
   Scenario: add education as a Student
     Given user is on the login page
     When user enters "batch16@gmail.com" email
