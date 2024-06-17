@@ -9,19 +9,14 @@ public class DevelopersPage extends BasePage{
 
     @FindBy(id = "profiles-heading")
     public WebElement developersText;
-
     @FindBy(id = "dualfilter-skills-btn")
     public WebElement skillButton;
-
     @FindBy(id = "singlefilter-input")
     public WebElement skillText;
-
     @FindBy(id = "filter-selection-form-btn")
     public WebElement filter;
-
     @FindBy(xpath = "(//div[@id='profile-item-container']//li[2])[1]")
     public WebElement selenium;
-
     @FindBy(xpath = "(//ul[@id='profile-item-detail-skills'])[1]")
     public WebElement ersteSkill;
 

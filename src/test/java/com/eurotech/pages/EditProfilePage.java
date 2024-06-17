@@ -8,15 +8,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class EditProfilePage extends BasePage{
 
-
     public WebElement inputField(String fieldName) {
         String fieldPath = "//*[@name='" + fieldName + "']";
         return Driver.getDriver().findElement(By.xpath(fieldPath));
     }
-
     @FindBy(xpath= "//input[@id='editprofile-from-addsocial-btn']")
     public WebElement sendenButton;
-
     @FindBy(xpath= "//div[@class='alert alert-success']")
     public WebElement alert;
 

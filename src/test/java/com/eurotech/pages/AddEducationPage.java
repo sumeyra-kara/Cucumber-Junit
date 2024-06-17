@@ -9,8 +9,6 @@ import java.util.List;
 
 public class AddEducationPage extends BasePage {
 
-
-
     @FindBy(id = "addecutaion-form-addschool-btn")
     public WebElement schollBootcamp;
     @FindBy(id = "addecutaion-form-adddegree-btn")
@@ -18,7 +16,6 @@ public class AddEducationPage extends BasePage {
 
     @FindBy(id = "addecutaion-form-addfield-btn")
     public WebElement study;
-
     @FindBy(id = "addecutaion-form-adddate-btn")
     public WebElement fromDate;
     @FindBy(name = "to")

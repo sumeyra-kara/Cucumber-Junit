@@ -37,13 +37,10 @@ public class LoginPage {
     public WebElement confirmButton;
     @FindBy(id = "loginpage-input-email") // email
     public WebElement inputEmail;
-
     @FindBy(id = "loginpage-form-pw-input") // password
     public WebElement inputPassword;
-
     @FindBy (id = "loginpage-form-btn") // login Button icin
     public WebElement inputLogin;
-
     @FindBy(xpath = "//input[@id='loginpage-form-btn']")
     public WebElement loginButton;
     @FindBy (xpath = "//div[text()='Invalid Credentials!']") // uyari yazisi

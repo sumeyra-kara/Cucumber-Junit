@@ -8,19 +8,14 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class DashboardPage extends BasePage {
-
     @FindBy(xpath = "//a[@data-for='edit-education-btn']")
     public WebElement addEducationButton;
-
     @FindBy(id = "dashboard-h1")
     public WebElement dashboardText;
-
     @FindBy(id = "dashboard-p1")
     public WebElement welcomeText;
-
     @FindBy(xpath = "//a[@class='btn btn-light']")
     public List<WebElement>  addList;
-
 
     @FindBy(xpath= "//*[@id='dashboard-experience-table']//tbody/tr[1]/td[2]")
     public WebElement title;
